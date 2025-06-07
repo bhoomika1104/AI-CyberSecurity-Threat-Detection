@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: threat-detection-agent
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: threat-detection-agent
+  template:
+    metadata:
+      labels:
+        app: threat-detection-agent
+    spec:
+      containers:
+      - name: threat-detection-agent
+        image: your-dockerhub-username/threat-detection-agent:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-api-key
+              key: api_key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: threat-detection-agent-service
+spec:
+  selector:
+    app: threat-detection-agent
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
