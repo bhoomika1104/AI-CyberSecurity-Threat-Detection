@@ -9,9 +9,10 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install flask
 
-# Expose port for FastAPI if needed
-EXPOSE 8000
+# Expose port for Flask app
+EXPOSE 5000
 
 # Default command to run when starting the container
-CMD ["uvicorn", "threat_analysis_agent:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "api_server.py"]

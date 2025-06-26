@@ -11,3 +11,4 @@ logstash
 kibana
 fastapi
 uvicorn
+streamlit
