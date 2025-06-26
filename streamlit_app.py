@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import os
+import sys
+import os
+sys.path.append(os.path.abspath("AI-Powered-Cybersecurity-Threat-Detection-System-main"))
+
 from main import CybersecurityThreatDetector
 
 st.set_page_config(page_title="AI-Powered Cybersecurity Threat Detection", layout="wide")
