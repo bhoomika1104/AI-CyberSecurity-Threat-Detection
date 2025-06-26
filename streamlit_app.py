@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import sys
 import os
-sys.path.append(os.path.abspath("AI-Powered-Cybersecurity-Threat-Detection-System-main"))
+sys.path.append(os.path.abspath("."))
 
 from main import CybersecurityThreatDetector
 
